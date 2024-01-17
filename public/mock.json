@@ -177,12 +177,7 @@
         "name": "grid1",
         "parent": "",
         "render": "",
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",
@@ -304,12 +299,7 @@
         "parent": "input",
         "render": "",
         "isFormData": true,
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",
@@ -738,12 +728,7 @@
         "name": "grid1",
         "parent": "",
         "render": "",
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",
@@ -866,12 +851,7 @@
         "parent": "",
         "render": "",
         "rowBlock": false,
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",
@@ -1157,12 +1137,7 @@
         "parent": "",
         "render": "",
         "rowBlock": false,
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",
@@ -1447,12 +1422,7 @@
         "parent": "table",
         "render": "",
         "rowBlock": true,
-        "layout": {
-          "i": "",
-          "h": 1,
-          "w": 3,
-          "minW": 2
-        },
+        "layout": {},
         "props": [
           {
             "id": "",

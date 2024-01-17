@@ -7,13 +7,14 @@ const style = {
 }
 
 const DropButton = props => {
+  const { compId } = props;
   return (
     <div>
       <Button
         style={style}
         draggable={true}
         unselectable="on"
-        onDragStart={e => e.dataTransfer.setData("text", props.text)}
+        onDragStart={e => e.dataTransfer.setData("compId", compId)}
       >{props.text}</Button>
     </div>
   );
