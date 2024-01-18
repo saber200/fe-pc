@@ -4,22 +4,6 @@
     align-items: start;
 }
 
-.left {
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-    text-align: center;
-    margin-right: 20px;
-    margin-top: 10px;
-    padding: 10px;
-    padding-top: 0;
-}
-
-.left > div{
-    width: 100px;
-    margin-bottom: 20px;
-}
-
 .center {
     max-width: calc(750px / 2);
     height: calc(1334px / 2);

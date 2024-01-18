@@ -1,8 +1,7 @@
 import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import MyFirstGrid from './parser/render/index'
-// import AddRemoveLayout from './parser/render/demo'
+import MyFirstGrid from './parser/index'
 import './App.css'
 
 const { Header, Content, Footer, Sider } = Layout;

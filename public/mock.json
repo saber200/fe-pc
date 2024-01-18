@@ -842,7 +842,7 @@
       "toolbox": {
         "group": "form",
         "name": "button",
-        "showName": "button",
+        "showName": "按钮",
         "order": "",
         "render": ""
       },
@@ -851,7 +851,18 @@
         "parent": "",
         "render": "",
         "rowBlock": false,
-        "layout": {},
+        "layout": {
+          "w": 3,
+          "h": 1,
+          "x": 0,
+          "y": 0,
+          "i": "page_r16mw~button_13",
+          "minW": 2,
+          "moved": false,
+          "static": false,
+          "isDraggable": true,
+          "text": "按钮"
+        },
         "props": [
           {
             "id": "",
@@ -863,7 +874,7 @@
             "type": "string",
             "defaultValue": "按钮",
             "isNull": true,
-            "value": "按钮_9"
+            "value": "新建产品按钮_14"
           },
           {
             "name": "text",
@@ -880,7 +891,7 @@
             "groupType": "common",
             "valueSource": [],
             "showEvent": true,
-            "value": "查询"
+            "value": "新建产品test"
           },
           {
             "name": "shape",
@@ -905,7 +916,7 @@
             ],
             "group": "基本属性",
             "groupType": "common",
-            "value": ""
+            "value": "circle"
           },
           {
             "name": "size",
@@ -934,7 +945,7 @@
             ],
             "group": "基本属性",
             "groupType": "common",
-            "value": "middle"
+            "value": "middle "
           },
           {
             "name": "type",
@@ -975,7 +986,7 @@
             ],
             "group": "基本属性",
             "groupType": "common",
-            "value": "primary"
+            "value": "link "
           },
           {
             "name": "icon",
@@ -1001,7 +1012,8 @@
             "desc": "可见",
             "label": "可见",
             "type": "boolean",
-            "showEvent": true
+            "showEvent": true,
+            "value": true
           },
           {
             "name": "disabled",
@@ -1015,7 +1027,8 @@
             "order": 3,
             "group": "基本属性",
             "groupType": "common",
-            "showEvent": true
+            "showEvent": true,
+            "value": false
           },
           {
             "id": "",
@@ -1028,7 +1041,8 @@
             "defaultValue": false,
             "isNull": true,
             "editor": false,
-            "showEvent": true
+            "showEvent": true,
+            "value": true
           },
           {
             "id": "",
@@ -1041,7 +1055,8 @@
             "defaultValue": "",
             "isNull": true,
             "editor": false,
-            "showEvent": true
+            "showEvent": true,
+            "value": "loading time..."
           }
         ],
         "event": [
@@ -1051,9 +1066,9 @@
             "triggetType": [],
             "defaultTriggerType": "",
             "pageId": "page_r16mw",
-            "id": 1172,
-            "guid": "onClick-page_r16mw~button_9",
-            "targetId": "page_r16mw~button_9"
+            "id": 1169,
+            "guid": "onClick-page_r16mw~button_13",
+            "targetId": "page_r16mw~button_13"
           }
         ],
         "commonStyle": [
@@ -1114,10 +1129,10 @@
             "value": false
           }
         ],
-        "renderOrder": 2
+        "renderOrder": 1
       },
-      "instanceId": "page_r16mw~button_9",
-      "parentId": "page_r16mw~grid1_2",
+      "instanceId": "page_r16mw~button_13",
+      "parentId": "page_r16mw~grid1_8",
       "containerId": "page_r16mw",
       "containerType": 2
     },
