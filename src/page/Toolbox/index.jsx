@@ -22,11 +22,6 @@ const Toolbox = props => {
       </div>
     },
     {
-      key: 'data',
-      label: '数据源组件',
-      children: 'Content of Tab Pane 3',
-    },
-    {
       key: 'other',
       label: '自定义组件',
       children: 'Content of Tab Pane 3',

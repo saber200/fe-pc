@@ -3,8 +3,9 @@ import _ from "lodash";
 import axios from 'axios';
 import { WidthProvider, Responsive } from "react-grid-layout";
 import { Drawer } from 'antd';
-import ConfigForm from '@components/Form';
-import Toolbox from '@components/Toolbox';
+import ConfigForm from '@/page/Form';
+import Toolbox from '@/page/Toolbox';
+import mapConfig from '@/config/mapConfig';
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
@@ -105,6 +106,8 @@ const MyFirstGrid = (props) => {
   // 获取json
   const initConfig = async () => {
     const result = await axios('mock.json');
+    result.data.data = result.data.data.filter(item => mapConfig.indexOf(item.name) >= 0);
+    console.log(result.data.data);
     setMockJson(result.data);
     setDropItems(result.data.data);
   }
