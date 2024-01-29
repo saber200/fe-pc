@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import _ from "lodash";
 import { Tabs } from 'antd';
 import DropButton from '@components/Drop';
@@ -8,7 +8,7 @@ const Toolbox = props => {
   const { dropItems } = props;
 
   const onChange = (key) => {
-    console.log(key);
+    // console.log(key);
   };
 
   const items = [
@@ -17,14 +17,9 @@ const Toolbox = props => {
       label: '表单组件',
       children: <div className='continer'>
         {dropItems?.map((item, inx) => {
-          return <DropButton compId={item.instanceId} key={`dropbtn_${inx}`} text={item.toolbox.showName} />
+          return item.layout ? null : <DropButton compId={item.instanceId} key={`dropbtn_${inx}`} text={item.name} />
         })}
       </div>
-    },
-    {
-      key: 'data',
-      label: '数据源组件',
-      children: 'Content of Tab Pane 3',
     },
     {
       key: 'other',

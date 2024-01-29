@@ -1,5 +1,5 @@
 {
-  "id": "page_r16mw",
+  "id": "index",
   "type": 1,
   "root": {
     "id": "mocha-page",
@@ -157,140 +157,17 @@
         }
       ]
     },
-    "instanceId": "page_r16mw",
+    "instanceId": "index",
     "maxIndex": 18
   },
   "data": [
     {
-      "id": "pack_Grid1",
-      "name": "grid1",
-      "pack": "antd",
-      "toolbox": {
-        "group": "layout",
-        "name": "grid1",
-        "showName": "行容器",
-        "order": "",
-        "render": ""
-      },
-      "render": {
-        "rowBlock": true,
-        "name": "grid1",
-        "parent": "",
-        "render": "",
-        "layout": {},
-        "props": [
-          {
-            "id": "",
-            "name": "name",
-            "showName": "行容器",
-            "desc": "行容器",
-            "label": "行容器",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "行容器",
-            "isNull": true,
-            "value": "行容器_2"
-          },
-          {
-            "id": "",
-            "name": "justify-content",
-            "showName": "水平对齐方式",
-            "desc": "水平对齐方式",
-            "label": "水平对齐方式",
-            "order": 1,
-            "type": "select",
-            "defaultValue": "flex-start",
-            "valueSource": [
-              {
-                "label": "左对齐",
-                "value": "flex-start"
-              },
-              {
-                "label": "右对齐",
-                "value": "flex-end"
-              },
-              {
-                "label": "居中对齐",
-                "value": "center"
-              }
-            ],
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "gap",
-            "showName": "子元素间距(像素)",
-            "desc": "子元素间距(像素)",
-            "label": "子元素间距(像素)",
-            "order": 1,
-            "type": "number",
-            "defaultValue": "12",
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "proOpen",
-            "showName": "高级模式可见",
-            "desc": "高级模式可见",
-            "label": "高级模式可见",
-            "order": 1,
-            "type": "boolean",
-            "defaultValue": false,
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "visible",
-            "showName": "可见",
-            "defaultValue": true,
-            "desc": "可见",
-            "label": "可见",
-            "type": "boolean",
-            "showEvent": true
-          }
-        ],
-        "commonStyle": [
-          {
-            "name": "styleBox",
-            "showName": "边距",
-            "value": {
-              "marginBottom": "14"
-            }
-          },
-          {
-            "name": "border",
-            "showName": "边框",
-            "defaultValue": {}
-          },
-          {
-            "name": "background",
-            "showName": "背景",
-            "value": "",
-            "defaultValue": ""
-          },
-          {
-            "name": "height",
-            "showName": "高度",
-            "value": "",
-            "defaultValue": ""
-          }
-        ],
-        "renderOrder": 1,
-        "event": [],
-        "permissionControl": []
-      },
-      "instanceId": "page_r16mw~grid1_2",
-      "parentId": "page_r16mw",
-      "containerId": "page_r16mw",
-      "containerType": 2
-    },
-    {
-      "id": "pack_Input",
+      "id": "pack_Input2",
       "name": "Input",
       "toolbox": {
         "group": "form",
         "name": "Input",
-        "showName": "Input",
+        "showName": "Input2",
         "order": "",
         "render": ""
       },
@@ -299,7 +176,6 @@
         "parent": "input",
         "render": "",
         "isFormData": true,
-        "layout": {},
         "props": [
           {
             "id": "",
@@ -412,185 +288,250 @@
             "value": "-"
           },
           {
-            "name": "size",
-            "desc": "控件大小。注：标准表单内的输入框大小限制为 large",
+            "id": "",
+            "name": "showLoading",
+            "showName": "显示加载状态",
+            "desc": "显示加载状态",
+            "label": "显示加载状态",
+            "order": 1,
+            "type": "boolean",
+            "defaultValue": false,
+            "isNull": true,
+            "editor": false,
+            "showEvent": true
+          },
+          {
+            "id": "",
+            "name": "showLoadingText",
+            "showName": "加载状态提示文字",
+            "desc": "加载状态提示文字",
+            "label": "加载状态提示文字",
+            "order": 1,
             "type": "string",
-            "defaultValue": "middle",
+            "defaultValue": "",
+            "isNull": true,
+            "editor": false,
+            "showEvent": true
+          }
+        ],
+        "event": [
+          {
+            "showName": "输入变化",
+            "name": "onChange",
+            "triggetType": [],
+            "defaultTriggerType": ""
+          },
+          {
+            "showName": "回车",
+            "name": "onPressEnter",
+            "triggetType": [],
+            "defaultTriggerType": ""
+          },
+          {
+            "showName": "点击",
+            "name": "onClick",
+            "triggetType": [],
+            "defaultTriggerType": ""
+          },
+          {
+            "showName": "获得输入焦点",
+            "name": "onFocus",
+            "triggetType": [],
+            "defaultTriggerType": ""
+          }
+        ],
+        "commonStyle": [
+          {
+            "name": "styleBox",
+            "showName": "边距",
+            "value": {},
+            "defaultValue": {}
+          },
+          {
+            "name": "border",
+            "showName": "边框",
+            "value": {},
+            "defaultValue": {}
+          },
+          {
+            "name": "background",
+            "showName": "背景",
+            "value": "",
+            "defaultValue": ""
+          },
+          {
+            "name": "width",
+            "showName": "宽度",
+            "value": "",
+            "defaultValue": ""
+          },
+          {
+            "name": "height",
+            "showName": "高度",
+            "value": "",
+            "defaultValue": ""
+          }
+        ],
+        "rules": [],
+        "permissionControl": [
+          {
+            "name": "visible",
+            "showName": "可见性",
+            "label": "可见性",
+            "type": "boolean",
+            "defaultValue": false,
+            "value": false
+          },
+          {
+            "name": "enable",
+            "showName": "禁用",
+            "label": "禁用",
+            "type": "boolean",
+            "defaultValue": false,
+            "value": false
+          },
+          {
+            "name": "readonly",
+            "showName": "只读",
+            "label": "只读",
+            "type": "boolean",
+            "defaultValue": false,
+            "value": false
+          }
+        ],
+        "renderOrder": 1
+      },
+      "pack": "antd",
+      "instanceId": "page_r16mw~Input_4",
+      "parentId": "page_r16mw~grid1_3",
+      "containerId": "page_r16mw",
+      "containerType": 2
+    },
+    {
+      "id": "pack_Input",
+      "name": "Input",
+      "toolbox": {
+        "group": "form",
+        "name": "Input",
+        "showName": "Input",
+        "order": "",
+        "render": ""
+      },
+      "render": {
+        "name": "Input",
+        "parent": "input",
+        "render": "",
+        "isFormData": true,
+        "props": [
+          {
+            "id": "",
+            "name": "name",
+            "showName": "组件备注",
+            "desc": "组件备注",
+            "label": "组件备注",
+            "order": 1,
+            "type": "string",
+            "defaultValue": "文本框",
+            "isNull": true,
+            "value": "产品名称文本框_3"
+          },
+          {
+            "id": "",
+            "name": "value",
+            "showName": "文本框内容",
+            "desc": "文本框内容",
+            "label": "文本框内容",
+            "order": 1,
+            "type": "string",
+            "defaultValue": "",
+            "isNull": true,
+            "showEvent": true,
+            "value": ""
+          },
+          {
+            "name": "allowClear",
+            "desc": "可以点击清除图标删除内容",
+            "type": "boolean",
+            "defaultValue": false,
             "version": "",
-            "id": "31d0d0ef-ed8c-46e9-8009-2f7e7e897045",
-            "showName": "大小",
-            "label": "大小",
+            "id": "4d4c2217-f3f2-4556-89fe-6fff594a8451",
+            "showName": "可清除",
+            "label": "可清除",
             "canEdit": true,
-            "order": 9,
+            "order": 2,
             "valueSource": [
               {
-                "label": "大",
-                "value": "large"
+                "label": "true",
+                "value": true
               },
               {
-                "label": "中 ",
-                "value": "middle"
-              },
-              {
-                "label": "小",
-                "value": "small"
+                "label": "false ",
+                "value": false
               }
             ],
             "group": "基本属性",
             "groupType": "common",
-            "value": "middle"
+            "value": true
           },
           {
-            "id": "",
-            "name": "label",
-            "showName": "标签",
-            "desc": "标签",
-            "label": "标签",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "",
-            "isNull": true,
-            "value": "产品名称"
-          },
-          {
-            "id": "",
-            "name": "labelAlign",
-            "showName": "标签对齐方式",
-            "desc": "标签对齐方式",
-            "label": "标签对齐方式",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "right",
-            "isNull": true,
-            "valueSource": [
-              {
-                "label": "左对齐",
-                "value": "left"
-              },
-              {
-                "label": "右对齐",
-                "value": "right"
-              }
-            ],
-            "value": "right"
-          },
-          {
-            "id": "",
-            "name": "formLayout",
-            "showName": "标签布局",
-            "desc": "标签",
-            "label": "标签",
-            "order": 1,
-            "type": "select",
-            "defaultValue": "horizontal",
-            "isNull": true,
-            "valueSource": [
-              {
-                "label": "垂直显示",
-                "value": "vertical"
-              },
-              {
-                "label": "水平显示",
-                "value": "horizontal"
-              }
-            ],
-            "value": "horizontal"
-          },
-          {
-            "id": "",
-            "name": "widthMode",
-            "showName": "宽度模式",
-            "desc": "标签",
-            "label": "标签",
-            "order": 1,
-            "type": "select",
-            "defaultValue": "input",
-            "isNull": true,
-            "valueSource": [
-              {
-                "label": "占满父容器宽度",
-                "value": "auto"
-              },
-              {
-                "label": "手动输入固定宽度",
-                "value": "input"
-              }
-            ],
-            "value": "input"
-          },
-          {
-            "id": "",
-            "name": "containerWidth",
-            "showName": "宽度",
-            "desc": "宽度",
-            "label": "宽度",
-            "order": 1,
-            "type": "number",
-            "defaultValue": "300",
-            "isNull": true,
-            "ifShow": {
-              "prop": "widthMode",
-              "value": "input"
-            },
-            "value": "300"
-          },
-          {
-            "id": "",
-            "name": "labelColSpan",
-            "showName": "标签宽度占比",
-            "desc": "标签宽度，按照24等分",
-            "label": "标签宽度",
-            "order": 1,
-            "type": "number",
-            "defaultValue": "",
-            "isNull": true,
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "labelColOffset",
-            "showName": "标签偏移",
-            "desc": "标签偏移，按照24等分",
-            "label": "标签偏移",
-            "order": 1,
-            "type": "number",
-            "defaultValue": "",
-            "isNull": true,
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "wrapperColSpan",
-            "showName": "组件宽度占比",
-            "desc": "组件度，按照24等分",
-            "label": "组件宽度占比",
-            "order": 1,
-            "type": "select",
-            "defaultValue": "",
-            "isNull": true,
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "wrapperColOffet",
-            "showName": "组件偏移",
-            "desc": "组件偏移，按照24等分",
-            "label": "组件偏移",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "",
-            "isNull": true,
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "visible",
-            "showName": "可见",
-            "defaultValue": true,
-            "desc": "可见",
-            "label": "可见",
+            "name": "bordered",
+            "desc": "是否有边框",
             "type": "boolean",
-            "showEvent": true
+            "defaultValue": true,
+            "version": "4.5.0",
+            "id": "d623018b-7bda-4b3e-aa14-ad4100d11fa3",
+            "showName": "是否有边框",
+            "label": "是否有边框",
+            "canEdit": true,
+            "order": 3,
+            "group": "基本属性",
+            "groupType": "common",
+            "value": true
+          },
+          {
+            "name": "disabled",
+            "desc": "禁用",
+            "type": "boolean",
+            "defaultValue": false,
+            "id": "d623018b-7bda-4b3e-aa14-ad4100d11fa3",
+            "showName": "禁用",
+            "label": "禁用",
+            "canEdit": true,
+            "order": 3,
+            "group": "基本属性",
+            "groupType": "common",
+            "showEvent": true,
+            "value": false
+          },
+          {
+            "name": "readOnly",
+            "desc": "只读",
+            "type": "boolean",
+            "defaultValue": false,
+            "id": "d623018b-7bda-4b3e-aa14-ad4100d11fa3",
+            "showName": "只读",
+            "label": "只读",
+            "canEdit": true,
+            "order": 3,
+            "group": "基本属性",
+            "groupType": "common",
+            "showEvent": true,
+            "value": false
+          },
+          {
+            "name": "maxLength",
+            "desc": "最大长度",
+            "type": "number",
+            "defaultValue": "-",
+            "version": "",
+            "id": "750af6cc-6c92-4618-91e3-fb4b8013fed7",
+            "showName": "最大长度",
+            "label": "最大长度",
+            "canEdit": true,
+            "order": 7,
+            "group": "基本属性",
+            "groupType": "common",
+            "value": "-"
           },
           {
             "id": "",
@@ -713,129 +654,6 @@
       "containerType": 2
     },
     {
-      "id": "pack_Grid1",
-      "name": "grid1",
-      "pack": "antd",
-      "toolbox": {
-        "group": "layout",
-        "name": "grid1",
-        "showName": "行容器",
-        "order": "",
-        "render": ""
-      },
-      "render": {
-        "rowBlock": true,
-        "name": "grid1",
-        "parent": "",
-        "render": "",
-        "layout": {},
-        "props": [
-          {
-            "id": "",
-            "name": "name",
-            "showName": "行容器",
-            "desc": "行容器",
-            "label": "行容器",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "行容器",
-            "isNull": true,
-            "value": "行容器_8"
-          },
-          {
-            "id": "",
-            "name": "justify-content",
-            "showName": "水平对齐方式",
-            "desc": "水平对齐方式",
-            "label": "水平对齐方式",
-            "order": 1,
-            "type": "select",
-            "defaultValue": "flex-start",
-            "valueSource": [
-              {
-                "label": "左对齐",
-                "value": "flex-start"
-              },
-              {
-                "label": "右对齐",
-                "value": "flex-end"
-              },
-              {
-                "label": "居中对齐",
-                "value": "center"
-              }
-            ],
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "gap",
-            "showName": "子元素间距(像素)",
-            "desc": "子元素间距(像素)",
-            "label": "子元素间距(像素)",
-            "order": 1,
-            "type": "number",
-            "defaultValue": "12",
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "proOpen",
-            "showName": "高级模式可见",
-            "desc": "高级模式可见",
-            "label": "高级模式可见",
-            "order": 1,
-            "type": "boolean",
-            "defaultValue": false,
-            "isNull": true
-          },
-          {
-            "id": "",
-            "name": "visible",
-            "showName": "可见",
-            "defaultValue": true,
-            "desc": "可见",
-            "label": "可见",
-            "type": "boolean",
-            "showEvent": true
-          }
-        ],
-        "commonStyle": [
-          {
-            "name": "styleBox",
-            "showName": "边距",
-            "value": {
-              "marginBottom": "14"
-            }
-          },
-          {
-            "name": "border",
-            "showName": "边框",
-            "defaultValue": {}
-          },
-          {
-            "name": "background",
-            "showName": "背景",
-            "value": "",
-            "defaultValue": ""
-          },
-          {
-            "name": "height",
-            "showName": "高度",
-            "value": "",
-            "defaultValue": ""
-          }
-        ],
-        "renderOrder": 2,
-        "event": [],
-        "permissionControl": []
-      },
-      "instanceId": "page_r16mw~grid1_8",
-      "parentId": "page_r16mw",
-      "containerId": "page_r16mw",
-      "containerType": 2
-    },
-    {
       "id": "pack_Button",
       "name": "button",
       "pack": "antd",
@@ -851,319 +669,6 @@
         "parent": "",
         "render": "",
         "rowBlock": false,
-        "layout": {
-          "w": 3,
-          "h": 1,
-          "x": 0,
-          "y": 0,
-          "i": "page_r16mw~button_13",
-          "minW": 2,
-          "moved": false,
-          "static": false,
-          "isDraggable": true,
-          "text": "按钮"
-        },
-        "props": [
-          {
-            "id": "",
-            "name": "name",
-            "showName": "组件备注",
-            "desc": "组件备注",
-            "label": "组件备注",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "按钮",
-            "isNull": true,
-            "value": "新建产品按钮_14"
-          },
-          {
-            "name": "text",
-            "desc": "文本",
-            "type": "string",
-            "defaultValue": "按钮",
-            "version": "",
-            "id": "27ede653-d344-467a-a1c8-2fb4d1a75679",
-            "showName": "文本",
-            "label": "文本",
-            "canEdit": true,
-            "order": 1,
-            "group": "基本属性",
-            "groupType": "common",
-            "valueSource": [],
-            "showEvent": true,
-            "value": "新建产品testaaaaa"
-          },
-          {
-            "name": "shape",
-            "desc": "设置按钮形状",
-            "type": "select",
-            "defaultValue": "",
-            "version": "",
-            "id": "27ede653-d344-467a-a1c8-2fb4d1a75679",
-            "showName": "形状",
-            "label": "形状",
-            "canEdit": true,
-            "order": 8,
-            "valueSource": [
-              {
-                "label": "circle",
-                "value": "circle"
-              },
-              {
-                "label": "round",
-                "value": "round"
-              }
-            ],
-            "group": "基本属性",
-            "groupType": "common",
-            "value": "circle"
-          },
-          {
-            "name": "size",
-            "desc": "设置按钮大小",
-            "type": "select",
-            "defaultValue": "middle",
-            "version": "",
-            "id": "dce2aebe-a443-43f1-b586-d0a8aeb4f020",
-            "showName": "大小",
-            "label": "大小",
-            "canEdit": true,
-            "order": 9,
-            "valueSource": [
-              {
-                "label": "大",
-                "value": "large"
-              },
-              {
-                "label": "中",
-                "value": "middle "
-              },
-              {
-                "label": "小",
-                "value": "small"
-              }
-            ],
-            "group": "基本属性",
-            "groupType": "common",
-            "value": "large"
-          },
-          {
-            "name": "type",
-            "desc": "设置按钮类型",
-            "type": "primary | ghost | dashed | link | text | default",
-            "defaultValue": "primary",
-            "version": "",
-            "id": "bffd2494-d9d1-498d-ad23-e4d9cb3df321",
-            "showName": "类型",
-            "label": "类型",
-            "canEdit": true,
-            "order": 11,
-            "valueSource": [
-              {
-                "label": "primary",
-                "value": "primary"
-              },
-              {
-                "label": "ghost ",
-                "value": "ghost "
-              },
-              {
-                "label": "dashed ",
-                "value": "dashed"
-              },
-              {
-                "label": "link ",
-                "value": "link "
-              },
-              {
-                "label": "text ",
-                "value": "text "
-              },
-              {
-                "label": "default",
-                "value": "default"
-              }
-            ],
-            "group": "基本属性",
-            "groupType": "common",
-            "value": "ghost "
-          },
-          {
-            "name": "icon",
-            "desc": "图标",
-            "type": "com",
-            "defaultValue": "",
-            "version": "",
-            "id": "27ede653-d344-467a-a1c8-2fb4d1a75679",
-            "showName": "图标",
-            "label": "图标",
-            "canEdit": true,
-            "order": 1,
-            "group": "基本属性",
-            "groupType": "common",
-            "customerEditor": "iconSelector",
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "visible",
-            "showName": "可见",
-            "defaultValue": true,
-            "desc": "可见",
-            "label": "可见",
-            "type": "boolean",
-            "showEvent": true,
-            "value": true
-          },
-          {
-            "name": "disabled",
-            "desc": "禁用",
-            "type": "boolean",
-            "defaultValue": false,
-            "id": "d623018b-7bda-4b3e-aa14-ad4100d11fa3",
-            "showName": "禁用",
-            "label": "禁用",
-            "canEdit": true,
-            "order": 3,
-            "group": "基本属性",
-            "groupType": "common",
-            "showEvent": true,
-            "value": ""
-          },
-          {
-            "id": "",
-            "name": "showLoading",
-            "showName": "显示加载状态",
-            "desc": "显示加载状态",
-            "label": "显示加载状态",
-            "order": 1,
-            "type": "boolean",
-            "defaultValue": false,
-            "isNull": true,
-            "editor": false,
-            "showEvent": true,
-            "value": true
-          },
-          {
-            "id": "",
-            "name": "showLoadingText",
-            "showName": "加载状态提示文字",
-            "desc": "加载状态提示文字",
-            "label": "加载状态提示文字",
-            "order": 1,
-            "type": "string",
-            "defaultValue": "",
-            "isNull": true,
-            "editor": false,
-            "showEvent": true,
-            "value": "vsvsdcdcloading time..."
-          }
-        ],
-        "event": [
-          {
-            "showName": "点击事件",
-            "name": "onClick",
-            "triggetType": [],
-            "defaultTriggerType": "",
-            "pageId": "page_r16mw",
-            "id": 1169,
-            "guid": "onClick-page_r16mw~button_13",
-            "targetId": "page_r16mw~button_13"
-          }
-        ],
-        "commonStyle": [
-          {
-            "name": "styleBox",
-            "showName": "边距",
-            "value": {},
-            "defaultValue": {}
-          },
-          {
-            "name": "border",
-            "showName": "边框",
-            "value": {},
-            "defaultValue": {}
-          },
-          {
-            "name": "background",
-            "showName": "背景",
-            "value": "",
-            "defaultValue": ""
-          },
-          {
-            "name": "width",
-            "showName": "宽度",
-            "value": "",
-            "defaultValue": ""
-          },
-          {
-            "name": "height",
-            "showName": "高度",
-            "value": "",
-            "defaultValue": ""
-          }
-        ],
-        "permissionControl": [
-          {
-            "name": "visible",
-            "showName": "可见性",
-            "label": "可见性",
-            "type": "boolean",
-            "defaultValue": false,
-            "value": false
-          },
-          {
-            "name": "enable",
-            "showName": "禁用",
-            "label": "禁用",
-            "type": "boolean",
-            "defaultValue": false,
-            "value": false
-          },
-          {
-            "name": "readonly",
-            "showName": "只读",
-            "label": "只读",
-            "type": "boolean",
-            "defaultValue": false,
-            "value": false
-          }
-        ],
-        "renderOrder": 1
-      },
-      "instanceId": "page_r16mw~button_13",
-      "parentId": "page_r16mw~grid1_8",
-      "containerId": "page_r16mw",
-      "containerType": 2
-    },
-    {
-      "id": "pack_Button",
-      "name": "button",
-      "pack": "antd",
-      "toolbox": {
-        "group": "form",
-        "name": "button",
-        "showName": "按钮",
-        "order": "",
-        "render": ""
-      },
-      "render": {
-        "name": "button",
-        "parent": "",
-        "render": "",
-        "rowBlock": false,
-        "layout": {
-          "w": 3,
-          "h": 1,
-          "x": 0,
-          "y": 0,
-          "i": "page_r16mw~button_13",
-          "minW": 2,
-          "moved": false,
-          "static": false,
-          "isDraggable": true,
-          "text": "按钮"
-        },
         "props": [
           {
             "id": "",
@@ -1452,18 +957,6 @@
         "parent": "table",
         "render": "",
         "rowBlock": true,
-        "layout": {
-          "w": 3,
-          "h": 1,
-          "x": 0,
-          "y": 0,
-          "i": "page_r16mw~Table_18",
-          "minW": 2,
-          "moved": false,
-          "static": false,
-          "isDraggable": true,
-          "text": "表格"
-        },
         "props": [
           {
             "id": "",
@@ -1488,35 +981,6 @@
             "defaultValue": true,
             "isNull": true,
             "value": true
-          },
-          {
-            "name": "size",
-            "desc": "尺寸",
-            "type": "select",
-            "defaultValue": "middle",
-            "version": "",
-            "id": "dce2aebe-a443-43f1-b586-d0a8aeb4f020",
-            "showName": "尺寸",
-            "label": "尺寸",
-            "canEdit": true,
-            "order": 9,
-            "valueSource": [
-              {
-                "label": "大",
-                "value": "large"
-              },
-              {
-                "label": "中",
-                "value": "middle "
-              },
-              {
-                "label": "小",
-                "value": "small"
-              }
-            ],
-            "group": "基本属性",
-            "groupType": "common",
-            "value": "middle"
           },
           {
             "id": "",
@@ -1743,131 +1207,6 @@
             "isNull": true,
             "editor": false,
             "value": "chanpin"
-          },
-          {
-            "id": "",
-            "name": "showPagination",
-            "showName": "显示分页",
-            "desc": "显示分页",
-            "label": "显示分页",
-            "order": 1,
-            "type": "boolean",
-            "defaultValue": true,
-            "value": true
-          },
-          {
-            "id": "",
-            "name": "serverPage",
-            "showName": "服务端分页/排序",
-            "desc": "服务端分页",
-            "label": "服务端分页",
-            "order": 1,
-            "type": "boolean",
-            "defaultValue": true,
-            "value": true
-          },
-          {
-            "id": "",
-            "name": "pagination",
-            "showName": "分页配置",
-            "desc": "分页配置",
-            "label": "分页配置",
-            "order": 1,
-            "type": "table_pagination",
-            "defaultValue": {
-              "pagination": true,
-              "position": "bottomRight",
-              "pageSize": 15,
-              "showQuickJumper": true,
-              "size": "default",
-              "current": 1,
-              "simple": false,
-              "showSizeChanger": true,
-              "total": 0
-            },
-            "isNull": true,
-            "events": [
-              {
-                "showName": "页码事件",
-                "name": "onChange",
-                "triggetType": [],
-                "defaultTriggerType": ""
-              },
-              {
-                "showName": "页大小事件",
-                "name": "onShowSizeChange",
-                "triggetType": [],
-                "defaultTriggerType": ""
-              }
-            ],
-            "customerEditor": "paginationEditor",
-            "ifShow": {
-              "prop": "showPagination",
-              "value": true
-            },
-            "value": {
-              "pagination": true,
-              "position": "bottomRight",
-              "pageSize": 15,
-              "showQuickJumper": true,
-              "size": "default",
-              "simple": false,
-              "current": 1,
-              "showSizeChanger": true,
-              "total": 0
-            }
-          },
-          {
-            "id": "",
-            "name": "scroll",
-            "showName": "表格滚动配置",
-            "desc": "表格滚动配置",
-            "label": "表格滚动配置",
-            "order": 1,
-            "type": "table_scroll",
-            "defaultValue": {
-              "scrollToFirstRowOnChange": true,
-              "x": false,
-              "width": "",
-              "height": "",
-              "y": false
-            },
-            "isNull": true,
-            "customerEditor": "ScrollEditor",
-            "value": {
-              "scrollToFirstRowOnChange": true,
-              "width": "",
-              "height": "",
-              "x": false,
-              "y": false
-            }
-          },
-          {
-            "id": "",
-            "name": "totalCount",
-            "showName": "总页数",
-            "value": "",
-            "defaultValue": 0,
-            "editor": false,
-            "showEvent": true
-          },
-          {
-            "id": "",
-            "name": "pageSize",
-            "showName": "每页数量",
-            "value": 10,
-            "defaultValue": 10,
-            "editor": false,
-            "showEvent": true
-          },
-          {
-            "id": "",
-            "name": "pageIndex",
-            "showName": "当前页码",
-            "value": 1,
-            "defaultValue": 1,
-            "editor": false,
-            "showEvent": true
           },
           {
             "id": "",
@@ -2322,187 +1661,6 @@
                 "group": "基本属性",
                 "groupType": "common",
                 "value": "-"
-              },
-              {
-                "name": "size",
-                "desc": "控件大小。注：标准表单内的输入框大小限制为 large",
-                "type": "string",
-                "defaultValue": "middle",
-                "version": "",
-                "id": "31d0d0ef-ed8c-46e9-8009-2f7e7e897045",
-                "showName": "大小",
-                "label": "大小",
-                "canEdit": true,
-                "order": 9,
-                "valueSource": [
-                  {
-                    "label": "大",
-                    "value": "large"
-                  },
-                  {
-                    "label": "中 ",
-                    "value": "middle"
-                  },
-                  {
-                    "label": "小",
-                    "value": "small"
-                  }
-                ],
-                "group": "基本属性",
-                "groupType": "common",
-                "value": "middle"
-              },
-              {
-                "id": "",
-                "name": "label",
-                "showName": "标签",
-                "desc": "标签",
-                "label": "标签",
-                "order": 1,
-                "type": "string",
-                "defaultValue": "",
-                "isNull": true,
-                "value": "产品名称"
-              },
-              {
-                "id": "",
-                "name": "labelAlign",
-                "showName": "标签对齐方式",
-                "desc": "标签对齐方式",
-                "label": "标签对齐方式",
-                "order": 1,
-                "type": "string",
-                "defaultValue": "right",
-                "isNull": true,
-                "valueSource": [
-                  {
-                    "label": "左对齐",
-                    "value": "left"
-                  },
-                  {
-                    "label": "右对齐",
-                    "value": "right"
-                  }
-                ],
-                "value": "right"
-              },
-              {
-                "id": "",
-                "name": "formLayout",
-                "showName": "标签布局",
-                "desc": "标签",
-                "label": "标签",
-                "order": 1,
-                "type": "select",
-                "defaultValue": "horizontal",
-                "isNull": true,
-                "valueSource": [
-                  {
-                    "label": "垂直显示",
-                    "value": "vertical"
-                  },
-                  {
-                    "label": "水平显示",
-                    "value": "horizontal"
-                  }
-                ],
-                "value": "horizontal"
-              },
-              {
-                "id": "",
-                "name": "widthMode",
-                "showName": "宽度模式",
-                "desc": "标签",
-                "label": "标签",
-                "order": 1,
-                "type": "select",
-                "defaultValue": "input",
-                "isNull": true,
-                "valueSource": [
-                  {
-                    "label": "占满父容器宽度",
-                    "value": "auto"
-                  },
-                  {
-                    "label": "手动输入固定宽度",
-                    "value": "input"
-                  }
-                ],
-                "value": "input"
-              },
-              {
-                "id": "",
-                "name": "containerWidth",
-                "showName": "宽度",
-                "desc": "宽度",
-                "label": "宽度",
-                "order": 1,
-                "type": "number",
-                "defaultValue": "300",
-                "isNull": true,
-                "ifShow": {
-                  "prop": "widthMode",
-                  "value": "input"
-                },
-                "value": "300"
-              },
-              {
-                "id": "",
-                "name": "labelColSpan",
-                "showName": "标签宽度占比",
-                "desc": "标签宽度，按照24等分",
-                "label": "标签宽度",
-                "order": 1,
-                "type": "number",
-                "defaultValue": "",
-                "isNull": true,
-                "value": ""
-              },
-              {
-                "id": "",
-                "name": "labelColOffset",
-                "showName": "标签偏移",
-                "desc": "标签偏移，按照24等分",
-                "label": "标签偏移",
-                "order": 1,
-                "type": "number",
-                "defaultValue": "",
-                "isNull": true,
-                "value": ""
-              },
-              {
-                "id": "",
-                "name": "wrapperColSpan",
-                "showName": "组件宽度占比",
-                "desc": "组件度，按照24等分",
-                "label": "组件宽度占比",
-                "order": 1,
-                "type": "select",
-                "defaultValue": "",
-                "isNull": true,
-                "value": ""
-              },
-              {
-                "id": "",
-                "name": "wrapperColOffet",
-                "showName": "组件偏移",
-                "desc": "组件偏移，按照24等分",
-                "label": "组件偏移",
-                "order": 1,
-                "type": "string",
-                "defaultValue": "",
-                "isNull": true,
-                "value": ""
-              },
-              {
-                "id": "",
-                "name": "visible",
-                "showName": "可见",
-                "defaultValue": true,
-                "desc": "可见",
-                "label": "可见",
-                "type": "boolean",
-                "showEvent": true
               }
             ],
             "event": [

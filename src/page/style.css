@@ -10,7 +10,8 @@
     margin: 10px;
     flex-grow: 1;
     padding-bottom: 10px;
-    border: 1px solid #cccccc
+    border: 1px solid #cccccc;
+    position: relative;
 }
 
 .center .layout{
@@ -21,6 +22,8 @@
 }
 
 .list-item {
+    position: absolute;
+    z-index: 9;
     border: 1px solid #cccccc;
     background-color: #ededed;
 }
@@ -35,6 +38,7 @@
     width: 20px;
     height: 20px;
     text-align: center;
+    z-index: 10;
 }
 
 .list-item button {
@@ -46,4 +50,13 @@
     width: 100px;
     height: 40px;
     border: 1px solid #dddddd;
+}
+
+.buttom-menus{
+    width: 100%;
+    height: 57px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: aqua;
 }

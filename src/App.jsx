@@ -1,6 +1,7 @@
 import React from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout, theme } from 'antd';
+import { Routes, Route } from 'react-router-dom'
 import MyFirstGrid from './page/index'
 import './App.css'
 
@@ -41,32 +42,11 @@ const App = () => {
           color: '#fff'
         }}
       >
-        headers
+        页面名
       </Header>
-      <Content
-        style={{
-          padding: '0 48px',
-          height: '100%'
-        }}
-      >
-        <Layout
-          style={{
-            // padding: '24px 0',
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-            height: '100%'
-          }}
-        >
-          <Content
-            style={{
-              padding: '0 24px',
-              minHeight: 280,
-            }}
-          >
-            <MyFirstGrid />
-          </Content>
-        </Layout>
-      </Content>
+      <Routes>
+        <Route path='/:id' index element={<MyFirstGrid />}/>
+      </Routes>
     </Layout>
   );
 };
