@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import _ from "lodash";
-import { Tabs } from 'antd';
+import { Tabs, Button } from 'antd';
 import DropButton from '@components/Drop';
 import './style.scss'
 
 const Toolbox = props => {
-  const { dropItems } = props;
-
-  const onChange = (key) => {
-    // console.log(key);
-  };
+  const { dropItems, submit } = props;
 
   const items = [
     {
@@ -29,14 +25,14 @@ const Toolbox = props => {
   ];
 
   return (
-    <div className='continer'>
+    <div className='continer' style={{ height: '100%', justifyContent: 'space-between' }}>
       <Tabs
       defaultActiveKey="layout"
       type="card"
       items={items}
-      onChange={onChange}
       style={{ width: '100%' }}
       />
+      <Button onClick={submit}>提交</Button>
     </div>
   );
 }

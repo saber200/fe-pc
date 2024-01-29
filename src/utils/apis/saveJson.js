@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.baseURL = import.meta.env.DEV ? 'http://localhost:5000' : 'http://154.221.31.52:5000';
+
 // 请求
 const service = axios.create({
   baseURL: '/api',
@@ -9,7 +11,7 @@ const service = axios.create({
 export const query_list = (data) => {
   return axios({
     method: 'get',
-    url: 'http://154.221.31.52:5000/getMenus',
+    url: `/getMenus`,
     header: {
       'Content-type': 'application/json',
     }
@@ -21,7 +23,7 @@ export const query_list = (data) => {
 export const saveMenus = (data) => {
   axios({
     method: 'post',
-    url: 'http://154.221.31.52:5000/saveMenus',
+    url: `/saveMenus`,
     data: {
       data: data
     },
@@ -36,7 +38,7 @@ export const saveMenus = (data) => {
 const saveJson = (data) => {
   axios({
     method: 'post',
-    url: 'http://154.221.31.52:5000/students',
+    url: `/students`,
     data: {
       json: data,
       id: data.id
@@ -52,7 +54,7 @@ const saveJson = (data) => {
 export const getJson = (id = 'index') => {
   return axios({
     method: 'get',
-    url: `http://154.221.31.52:5000/students?id=${id}`,
+    url: `/students?id=${id}`,
   }).then(res => {
     return res;
   })
