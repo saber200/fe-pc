@@ -11,10 +11,19 @@ import {
 
 import './style.scss';
 
+
+const icons = {
+  icon_1: <HomeOutlined />,
+  icon_2: <UnorderedListOutlined />,
+  icon_3: <TeamOutlined />
+}
+
 const PageConfig = (props) => {
-  const { mockJson, setMockJson } = props;
+  const { mockJson, setMockJson, urlParams } = props;
   const [menuOpen, setMenuOpen] = useState(false);
   const [editChecked, setEditChecked] = useState(false);
+  const [editCheckedId, setEditCheckedId] = useState(false);
+  const [defaultOpenKeys, setDefaultOpenKeys] = useState();
   const [menus, setMenus] = useState([
     { label: 'page_r16mw', value: 'page_r16mw' },
     { label: 'page_r17mw', value: 'page_r17mw' },
@@ -24,36 +33,49 @@ const PageConfig = (props) => {
   const [menuForm] = Form.useForm();
   const navigate = useNavigate();
 
+  const initOpenKeys = (result) => {
+    const key = urlParams.id;
+    let selectList = null;
+    result.data.data.forEach(item => {
+      if (item.children) {
+        item.children.forEach(children => {
+          if (children.value === key) {
+            selectList = item;
+          }
+        })
+      } else {
+        if (item.key === key) {
+          selectList = item;
+        }
+      }
+    });
+
+    setDefaultOpenKeys(selectList.key);
+    return false;
+  }
+
   const getMenusList = async () => {
     const result = await query_list();
+    initOpenKeys(result);
+
+    result.data.data.map(item => {
+      if(item.icon_name){
+        item.icon = icons[item.icon_name]
+      }
+
+      return item;
+    });
+
     setQuerylist(result.data.data);
   }
 
-  const onChangeMenuConfig = async (e) => {
-    const a = {
-      ids: ['page_r17mw', 'page_r18mw'],
-      menu_icon: "icon_2",
-      menu_name: "asd",
-      menu_name_id: "asd",
-    }
-
-    const formValue = menuForm.setFieldsValue(a);
-    
-    const id = e.key === ('index' || 'key') ? e.key : e.keyPath[1];
-
-    return await true;
-  }
-
   const onClick = async (e) => {
-    if (editChecked) {
-      onChangeMenuConfig(e).then(res => {
-        setMenuOpen(true);
-      });
+    const key = e.key;
+
+    if(editChecked){
+      setMenuOpen(true);
+      setEditCheckedId(key);
       return false;
-    }
-    let key = 'index';
-    if (e.keyPath.length > 1) {
-      key = e.item.props.value;
     }
 
     const result = await getJson(key);
@@ -62,17 +84,59 @@ const PageConfig = (props) => {
     navigate(`/${key}`)
   };
 
+  const onRemoveMenu = () => {
+    let selectList = null;
+    let selectListsArr = [];
+    let newQueryList = [...querylist];
+    newQueryList.forEach(item => {
+      if (item.children) {
+        item.children.forEach(children => {
+          if (children.value === editCheckedId) {
+            selectList = item;
+          }
+        })
+      } else {
+        if (item.key === editCheckedId) {
+          selectList = item;
+        }
+      }
+    });
+
+    selectList.children.map(item => {
+      if(item.value !== editCheckedId){
+        selectListsArr.push(item);
+      }
+    })
+
+    selectList.children = selectListsArr;
+
+    newQueryList = newQueryList.map(item => {
+      if(item.key === selectList.key){
+        item = selectList;
+      }
+
+      return item;
+    })
+
+    saveMenus(newQueryList);
+
+    navigate(`/index`)
+    getMenusList();
+    setMenuOpen(false);
+  }
+
   const onAddMenu = () => {
     const add_menu = menuForm.getFieldsValue();
     const query_list = [...querylist];
     const { menu_name_id, menu_name, ids, menu_icon } = add_menu;
     const newMockJson = { ...mockJson };
 
-    const children = ids.map(id => ({ value: id, label: id }));
+    const children = ids.map(id => ({ value: id, label: id, key: id }));
     query_list.push({
       key: menu_name_id,
       label: menu_name,
-      icon: menu_icon,
+      icon_name: menu_icon,
+      icon: icons[menu_icon],
       children
     })
 
@@ -81,10 +145,9 @@ const PageConfig = (props) => {
 
     newMockJson.menus = query_list;
     setMockJson(newMockJson);
-    // menuForm.resetFields();
+    menuForm.resetFields();
 
-    console.log(menuForm.getFieldsValue())
-    // saveMenus(query_list);
+    saveMenus(query_list);
   }
 
   const setSelectMenusOptions = () => {
@@ -112,19 +175,21 @@ const PageConfig = (props) => {
           unCheckedChildren="编辑"
         />
       </div>
-      <Menu
+      {!defaultOpenKeys ? null : <Menu
         onClick={onClick}
         style={{ width: 256 }}
-        defaultSelectedKeys={['index']}
+        defaultOpenKeys={[defaultOpenKeys]}
+        defaultSelectedKeys={[urlParams.id]}
         mode="inline"
         items={querylist}
-      />
+      />}
       <Modal
         open={menuOpen}
-        onOk={onAddMenu}
-        onCancel={() => setMenuOpen(false)}
-        okText="确定"
-        cancelText="取消"
+        footer={[
+          <Button onClick={() => setMenuOpen(false)}>取消</Button>,
+          <Button onClick={onRemoveMenu} type="primary" danger>删除</Button>,
+          <Button onClick={onAddMenu} type="primary">确定</Button>
+        ]}
         destroyOnClose={true}
       >
         <Form

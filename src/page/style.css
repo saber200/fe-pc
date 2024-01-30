@@ -2,14 +2,15 @@
     display: flex;
     justify-content: start;
     align-items: start;
+    height: 100%;
 }
 
 .center {
     max-width: calc(750px / 2);
-    height: calc(1334px / 2);
+    max-height: calc(1334px / 2);
+    height: 100%;
     margin: 10px;
     flex-grow: 1;
-    padding-bottom: 10px;
     border: 1px solid #cccccc;
     position: relative;
 }

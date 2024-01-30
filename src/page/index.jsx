@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'
 import _ from "lodash";
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { WidthProvider, Responsive } from "react-grid-layout";
 import { Drawer, Button } from 'antd';
 import ConfigForm from '@/page/Form';
 import Toolbox from '@components/Toolbox';
 import PageConfig from '@components/PageConfig';
-import mapConfig from '@/config/mapConfig';
-import { getJson } from '@/utils/apis/saveJson';
-import saveJson from '@/utils/apis/saveJson';
+import saveJson, { getJson } from '@/utils/apis/saveJson';
 
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
@@ -16,9 +15,9 @@ import './style.css'
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const MyFirstGrid = (props) => {
+  const urlParams = useParams();
   const [oldXY, setOldXY] = useState({ x: 0, y: 0 });
   const [startMove, setStartMove] = useState(false);
-  const [isRemove, setIsRemove] = useState(true);
   const [mockJson, setMockJson] = useState({});
   const [state, setState] = useState({
     list: [],
@@ -140,7 +139,8 @@ const MyFirstGrid = (props) => {
 
   // 获取json
   const initConfig = async () => {
-    const result = await getJson();
+    const id = urlParams.id;
+    const result = await getJson(id);
     setMockJson(result.data.json);
   }
 
@@ -164,7 +164,7 @@ const MyFirstGrid = (props) => {
 
   return (
     <div className='create-continer'>
-      <PageConfig setMockJson={setMockJson} mockJson={mockJson} />
+      <PageConfig setMockJson={setMockJson} mockJson={mockJson} urlParams={urlParams} />
       <Toolbox dropItems={mockJson.data} submit={submit} />
       <div className='center'>
         <ResponsiveGridLayout
@@ -182,9 +182,7 @@ const MyFirstGrid = (props) => {
         >
           {_.map(mockJson.data, (item, inx) => createElement(item.layout, inx))}
         </ResponsiveGridLayout>
-        <div className='buttom-menus'>
-
-        </div>
+        {/* <div className='buttom-menus'></div> */}
       </div>
       <Drawer
         destroyOnClose

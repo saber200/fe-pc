@@ -25,7 +25,7 @@ const Toolbox = props => {
   ];
 
   return (
-    <div className='continer' style={{ height: '100%', justifyContent: 'space-between' }}>
+    <div className='continer' style={{ height: 'calc(100% - 80px)', justifyContent: 'space-between' }}>
       <Tabs
       defaultActiveKey="layout"
       type="card"
