@@ -53,6 +53,15 @@ const ConfigForm = props => {
         return (
           <Select options={item.valueSource} />
         )
+      case 'type':
+        item.valueSource = item.valueSource ? item.valueSource : yesOrNo;
+        return (
+          <Radio.Group>
+            {item.valueSource.map(part => {
+              return <Radio value={part.value}>{part.label}</Radio>
+            })}
+          </Radio.Group>
+        )
       default:
         return null
     }

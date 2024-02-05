@@ -164,7 +164,7 @@ const MyFirstGrid = (props) => {
 
   return (
     <div className='create-continer'>
-      <PageConfig setMockJson={setMockJson} mockJson={mockJson} urlParams={urlParams} />
+      <PageConfig setMockJson={setMockJson} mockJson={mockJson} urlParams={urlParams} initConfig={initConfig} />
       <Toolbox dropItems={mockJson.data} submit={submit} />
       <div className='center'>
         <ResponsiveGridLayout

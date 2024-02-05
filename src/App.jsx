@@ -3,6 +3,20 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import { Layout, theme } from 'antd';
 import { Routes, Route } from 'react-router-dom'
 import MyFirstGrid from './page/index'
+
+import Keycloak from 'keycloak-js'
+ 
+const keycloak = new Keycloak({
+  url: 'http://kc.it663.com:8020/', // 远程地址
+  realm: 'master',
+  clientId: 'security-admin-console'
+})
+
+// keycloak.init({onLoad: 'login-required'}).then((auth) => {
+//   console.log(auth)
+// })
+
+
 import './App.css'
 
 const { Header, Content, Footer, Sider } = Layout;

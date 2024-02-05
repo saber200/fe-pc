@@ -15,8 +15,8 @@ const inputEvents = [
 ]
 
 const tableEvents = [
-  { label: '选择行', value: 'onSelect' },
-  { label: '排序', value: 'onSort' },
+  { label: '点击行', value: 'onClick' },
+  // { label: '排序', value: 'onSort' },
 ]
 
 export default {

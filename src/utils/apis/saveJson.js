@@ -20,12 +20,13 @@ export const query_list = (data) => {
   })
 }
 
-export const saveMenus = (data) => {
-  axios({
+export const saveMenus = (data, scrollType) => {
+  return axios({
     method: 'post',
     url: `/saveMenus`,
     data: {
-      data: data
+      data: data,
+      scroll_type: scrollType
     },
     header: {
       'Content-type': 'application/json',
