@@ -37,7 +37,7 @@ export const saveMenus = (data, scrollType) => {
 }
 
 const saveJson = (data) => {
-  axios({
+  return axios({
     method: 'post',
     url: `/students`,
     data: {
@@ -56,6 +56,15 @@ export const getJson = (id = 'index') => {
   return axios({
     method: 'get',
     url: `/students?id=${id}`,
+  }).then(res => {
+    return res;
+  })
+}
+
+export const testApi = () => {
+  return axios({
+    method: 'get',
+    url: `/setCookies`,
   }).then(res => {
     return res;
   })

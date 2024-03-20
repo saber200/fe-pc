@@ -59,8 +59,6 @@ const PageConfig = (props) => {
       }
     });
 
-    console.log(selectList)
-
     setDefaultOpenKeys(selectList.key);
     return false;
   }
@@ -123,7 +121,7 @@ const PageConfig = (props) => {
     const result = await getJson(key);
     setMockJson(result.data.json)
 
-    navigate(`/?id=${key}`)
+    navigate(`/${key}`)
   };
 
   const onRemoveMenu = () => {
@@ -172,7 +170,7 @@ const PageConfig = (props) => {
         children
       }
 
-      query_list = query_list.map(item => {
+      query_list = query_list?.map(item => {
         if(item.key === menuOpenId){
           item = editOption;
         }

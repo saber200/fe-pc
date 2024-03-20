@@ -2,7 +2,7 @@ import _ from "lodash";
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { WidthProvider, Responsive } from "react-grid-layout";
-import { Drawer, Button } from 'antd';
+import { Drawer, Button, message } from 'antd';
 import ConfigForm from '@/page/Form';
 import Toolbox from '@components/Toolbox';
 import PageConfig from '@components/PageConfig';
@@ -159,7 +159,9 @@ const MyFirstGrid = (props) => {
   }, [])
 
   const submit = () => {
-    saveJson(mockJson);
+    saveJson(mockJson).then(res => {
+      message.success('提交成功')
+    });
   }
 
   return (

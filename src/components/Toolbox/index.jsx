@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import _ from "lodash";
 import { Tabs, Button } from 'antd';
 import DropButton from '@components/Drop';
+import { testApi } from '@/utils/apis/saveJson';
 import './style.scss'
 
 const Toolbox = props => {
@@ -24,6 +25,12 @@ const Toolbox = props => {
     }
   ];
 
+  const test = () => {
+    testApi().then(res => {
+      console.log(123);
+    })
+  }
+
   return (
     <div className='continer' style={{ height: 'calc(100% - 80px)', justifyContent: 'space-between' }}>
       <Tabs
@@ -32,7 +39,7 @@ const Toolbox = props => {
       items={items}
       style={{ width: '100%' }}
       />
-      <Button onClick={submit}>提交</Button>
+      <Button onClick={test}>提交</Button>
     </div>
   );
 }

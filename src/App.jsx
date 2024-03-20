@@ -3,46 +3,10 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import { Layout, theme } from 'antd';
 import { Routes, Route } from 'react-router-dom'
 import MyFirstGrid from './page/index'
-
-import Keycloak from 'keycloak-js'
- 
-const keycloak = new Keycloak({
-  url: 'http://kc.it663.com:8020/', // 远程地址
-  realm: 'master',
-  clientId: 'security-admin-console'
-})
-
-// keycloak.init({onLoad: 'login-required'}).then((auth) => {
-//   console.log(auth)
-// })
-
-
 import './App.css'
 
 const { Header, Content, Footer, Sider } = Layout;
-// const items1 = ['1', '2', '3'].map((key) => ({
-//   key,
-//   label: `nav ${key}`,
-// }));
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-  const key = String(index + 1);
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
 const App = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
   return (
     <Layout
       style={{
