@@ -5,7 +5,7 @@ import { WidthProvider, Responsive } from "react-grid-layout";
 import { Drawer, Button, message } from 'antd';
 import ConfigForm from '@/page/Form';
 import Toolbox from '@components/Toolbox';
-import PageConfig from '@components/PageConfig';
+// import PageConfig from '@components/PageConfig';
 import saveJson, { getJson } from '@/utils/apis/saveJson';
 
 import 'react-grid-layout/css/styles.css'
