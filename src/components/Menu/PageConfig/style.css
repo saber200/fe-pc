@@ -1,0 +1,13 @@
+.page_config{
+  background-color: #fff;
+}
+
+.page_config_form{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.page_config_form > div{
+  width: 100%;
+}

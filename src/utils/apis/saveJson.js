@@ -9,15 +9,15 @@ const service = axios.create({
 })
 
 export const query_list = (data) => {
-  return axios({
-    method: 'get',
-    url: `/getMenus`,
-    header: {
-      'Content-type': 'application/json',
-    }
-  }).then(res => {
-    return res
-  })
+  // return axios({
+  //   method: 'get',
+  //   url: `/getMenus`,
+  //   header: {
+  //     'Content-type': 'application/json',
+  //   }
+  // }).then(res => {
+  //   return res
+  // })
 }
 
 export const saveMenus = (data, scrollType) => {

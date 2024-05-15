@@ -1,0 +1,13 @@
+.menu{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.sub_menu{
+  width: 330px;
+  padding: 20px;
+  background-color: #fff;
+  height: 100%;
+}

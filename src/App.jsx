@@ -1,11 +1,12 @@
 import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Layout, theme } from 'antd';
+import { Layout } from 'antd';
 import { Routes, Route } from 'react-router-dom'
 import MyFirstGrid from './page/index'
+import Home from './page/Home'
+import Header from '@/components/Header/index'
+import MenuComponent from '@/components/Menu/index'
 import './App.css'
 
-const { Header, Content, Footer, Sider } = Layout;
 const App = () => {
   return (
     <Layout
@@ -14,18 +15,14 @@ const App = () => {
         marginBottom: '20px'
       }}
     >
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          color: '#fff'
-        }}
-      >
-        页面名
-      </Header>
-      <Routes>
-        <Route path='/:id' index element={<MyFirstGrid />}/>
-      </Routes>
+      <Header />
+      <div className='main'>
+        <MenuComponent />
+        <Routes>
+          <Route path='/' index element={<Home />}/>
+          <Route path='/:id' index element={<MyFirstGrid />}/>
+        </Routes>
+      </div>
     </Layout>
   );
 };
