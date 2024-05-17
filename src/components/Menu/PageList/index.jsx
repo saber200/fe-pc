@@ -19,9 +19,7 @@ const PageMenu = () => {
   const route = useNavigate()
 
   const onClick = (e) => {
-    route(e.key, {
-      
-    })
+    route(e.key);
   };
 
   return (

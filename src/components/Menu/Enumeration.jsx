@@ -1,4 +1,4 @@
-import PageConfig from './PageConfig';
+import ComponentList from './ComponentList';
 import PageMenu from './PageList';
 
 export default {
@@ -10,6 +10,6 @@ export default {
   component: {
     key: 'component',
     label: '基础组件',
-    component: <div>component</div>
+    component: <ComponentList />
   }
 }

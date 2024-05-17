@@ -1,0 +1,9 @@
+.component_list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .drag-gird{
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+}

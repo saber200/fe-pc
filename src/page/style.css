@@ -6,8 +6,8 @@
 }
 
 .center {
-    max-width: calc(750px / 2);
-    max-height: calc(1334px / 2);
+    width: calc(750px / 2);
+    height: calc(1334px / 2);
     height: 100%;
     margin: 10px;
     flex-grow: 1;
