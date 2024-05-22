@@ -20,7 +20,7 @@ const App = () => {
         <MenuComponent />
         <Routes>
           <Route path='/' index element={<Home />}/>
-          <Route path='/:id' index element={<MyFirstGrid />}/>
+          <Route path='/page_1' index element={<Home />}/>
         </Routes>
       </div>
     </Layout>

@@ -1,19 +1,19 @@
+/*
+ * @Author: v_qubo02 v_qubo02@baidu.com
+ * @Date: 2024-05-17 11:21:23
+ * @LastEditors: v_qubo02 v_qubo02@baidu.com
+ * @LastEditTime: 2024-05-22 15:46:20
+ * @FilePath: /fe-pc/src/components/Button/index.jsx
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 import { Button } from 'antd';
-import DragCop from '@/components/Drag';
 
-const SelectCop = () => {
-  const defaultData = {
-    w: 4,
-    h: 1,
-    static: true,
-    i: 'button'
-  };
-
+const ButtonCop = () => {
   return (
-    <DragCop defaultData={defaultData}>
-      <Button>拖拽获得按钮</Button>
-    </DragCop>
+    <Button>按钮</Button>
   )
 }
 
-export default SelectCop
+export default ButtonCop
