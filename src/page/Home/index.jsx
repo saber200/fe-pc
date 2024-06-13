@@ -2,7 +2,7 @@
  * @Author: v_qubo02 v_qubo02@baidu.com
  * @Date: 2024-05-15 14:33:11
  * @LastEditors: v_qubo02 v_qubo02@baidu.com
- * @LastEditTime: 2024-05-22 15:50:50
+ * @LastEditTime: 2024-05-22 16:58:02
  * @FilePath: /fe-pc/src/page/Home/index.jsx
  * @Description: 
  * 
@@ -24,9 +24,10 @@ import './style.css'
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const Home = () => {
-  const [list, setList] = useState([]);
-  const gridData = useSelector(state => state.gridData);
+  const [list, setList] = useState([]); // layouts
+  const gridData = useSelector(state => state.gridData); // 当前拖动组件属性
 
+  // 添加组件
   const onAddDrop = (layout, inx) => {
     const { i, w, h, type } = gridData;
     const newLayout = {
@@ -43,6 +44,7 @@ const Home = () => {
     setList(newList);
   }
 
+  // 选择组件
   const selectedComponent = (type, el) => {
     switch(type){
       case 'select':
@@ -58,6 +60,7 @@ const Home = () => {
     }
   }
 
+  // 创建组件
   const createElement = (el, inx) => {
     return (
       <div key={el.i} className='list-item' data-grid={el}>
@@ -67,6 +70,23 @@ const Home = () => {
     )
   }
 
+  // 修改layout
+  const onChangeLayout = layout => {
+    const newList = list.map((item, inx) => {
+      const { x, y, w, h } = layout[inx];
+      return {
+        ...item,
+        x,
+        y,
+        w,
+        h
+      }
+    })
+
+    setList(newList)
+  }
+
+  // 删除layout
   const onRemovelayout = (e, i) => {
     const newList = [...list];
     newList.splice(i, 1);
@@ -74,48 +94,16 @@ const Home = () => {
     setList(newList);
   }
 
-  const onDrop = layout => {
-    const inx = layout.length - 1;
-    const newLayout = layout[inx];
-    onAddDrop(newLayout, inx);
-  }
+  // 外部移入元素时调用
+  const onDrop = layout => onAddDrop(layout[layout.length - 1], layout.length - 1);
 
-  const onDrag = (layout, oldItem, newItem, placeholder, e, element) => {
-  }
+  // 移动完成
+  const onDragStop = layout => onChangeLayout(layout);
 
-  const onDragStart = (layout, oldItem, newItem, placeholder, e, element) => {
-  }
+  // 改变尺寸
+  const onResizeStop = layout => onChangeLayout(layout);
 
-  const onDragStop = layout => {
-    const newList = list.map((item, inx) => {
-      const { x, y, w, h } = layout[inx];
-      return {
-        ...item,
-        x,
-        y,
-        w,
-        h
-      }
-    })
-
-    setList(newList)
-  };
-
-  const onResizeStop = layout => {
-    const newList = list.map((item, inx) => {
-      const { x, y, w, h } = layout[inx];
-      return {
-        ...item,
-        x,
-        y,
-        w,
-        h
-      }
-    })
-
-    setList(newList)
-  };
-
+  // 外部拖入及移动时
   const onDropDragOver = e => ({ ...gridData });
 
   return (
@@ -129,8 +117,6 @@ const Home = () => {
         preventCollision
         className="grid_layout"
         onDrop={onDrop}
-        onDrag={onDrag}
-        onDragStart={onDragStart}
         onDragStop={onDragStop}
         onDropDragOver={onDropDragOver}
         onResizeStop={onResizeStop}
