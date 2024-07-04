@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
-import { changeDataGridReducer } from '@/utils/reducers/index.js';
+import { initState } from '@/utils/reducers/index.js';
 import './index.css'
 
-const store = createStore(changeDataGridReducer)
+const store = createStore(initState)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

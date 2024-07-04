@@ -14,18 +14,6 @@ export default {
     "parent": "",
     "render": "",
     "rowBlock": false,
-    "layout": {
-      "w": 3,
-      "h": 1,
-      "x": 10,
-      "y": 10,
-      "i": "page_r16mw~button_13",
-      "minW": 2,
-      "moved": false,
-      "static": false,
-      "isDraggable": true,
-      "text": "按钮"
-    },
     "props": [
       {
         "id": "",

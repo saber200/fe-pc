@@ -1,0 +1,21 @@
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  height: 60px;
+  border-bottom: 1px solid #c1c1c1;
+  box-shadow: inset;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  z-index: 10;
+
+  .header_user_setting{
+    button{
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 .home{
-  /* padding: 20px; */
-  max-width: calc(750px / 2);
-  max-height: calc(1334px / 2);
-  height: 100%;
-  margin: 0 10px;
-  flex-grow: 1;
+  width: 375;
+  flex-basis: 375px;
+  flex-grow: 0 !important;
+  height: calc(100% - 60px) !important;
+  margin: 20px;
   border: 1px solid #cccccc;
   position: relative;
+  padding: 0 !important;
 }
 
 .grid_layout{

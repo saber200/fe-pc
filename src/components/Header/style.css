@@ -1,9 +1,0 @@
-.header{
-  height: 80px;
-  border-bottom: 1px solid #c1c1c1;
-  box-shadow: inset;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  align-items: center;
-}
