@@ -1,10 +1,14 @@
 import DragCop from '@/components/Drag';
-import {
-  SelectCop,
-  ButtonCop,
-  TableCop,
-  PaginationCop
-} from '@/components/CopList';
+// import {
+//   SelectCop,
+//   ButtonCop,
+//   TableCop,
+//   PaginationCop
+// } from '@/components/CopList';
+import SelectIcon from "@/assets/i-select.svg?react";
+import ButtonIcon from "@/assets/i-button.svg?react";
+import PaginationIcon from "@/assets/i-pagination.svg?react";
+import TableIcon from "@/assets/i-table.svg?react";
 import {
   selectDefaultConfig,
   buttonDefaultConfig,
@@ -16,17 +20,29 @@ import './style.scss';
 const ComponentList = () => {
   return (
     <div className='component_list'>
-      <DragCop defaultData={selectDefaultConfig} style={{ width: '100%' }}>
-        <SelectCop style={{ width: '100%' }} />
+      <DragCop defaultData={selectDefaultConfig}>
+        <div className='component_part'>
+          <SelectIcon />
+          <div>下拉框</div>
+        </div>
       </DragCop>
-      <DragCop defaultData={buttonDefaultConfig} style={{ width: '100%' }}>
-        <ButtonCop />
+      <DragCop defaultData={buttonDefaultConfig}>
+        <div className='component_part'>
+          <ButtonIcon />
+          <div>按钮</div>
+        </div>
       </DragCop>
-      <DragCop defaultData={tableDefaultConfig} style={{ width: '100%' }}>
-        <TableCop />
+      <DragCop defaultData={tableDefaultConfig}>
+        <div className='component_part'>
+          <TableIcon />
+          <div>表格</div>
+        </div>
       </DragCop>
-      <DragCop defaultData={paginationDefaultConfig} style={{ width: '100%' }}>
-        <PaginationCop />
+      <DragCop defaultData={paginationDefaultConfig}>
+        <div className='component_part'>
+          <PaginationIcon />
+          <div>分页</div>
+        </div>
       </DragCop>
     </div>
   )

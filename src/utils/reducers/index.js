@@ -21,6 +21,7 @@ const initialState = {
   logo: '',
   pageName: 'test1',
   buildPageId: '',
+  componentConfig: {},
   gridData: {}
 }
 
@@ -73,6 +74,17 @@ export function initState(state = initialState, action) {
     return {
       ...state,
       buildPageId: action.buildPageId
+    }
+  }
+
+  if(type === 'changeConfig') {
+    const newConfig = {
+      ...action.config,
+      gridData
+    }
+    return {
+      ...state,
+      componentConfig: newConfig
     }
   }
   

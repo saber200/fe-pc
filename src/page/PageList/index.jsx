@@ -2,14 +2,14 @@
  * @Author: v_qubo02 v_qubo02@baidu.com
  * @Date: 2024-07-02 16:00:35
  * @LastEditors: v_qubo02 v_qubo02@baidu.com
- * @LastEditTime: 2024-07-04 16:18:15
+ * @LastEditTime: 2024-07-07 19:37:28
  * @FilePath: /fe-pc/src/page/PageList/index.jsx
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
  */
 import _ from "lodash";
-import { Table, Button } from "antd";
+import { Table, Button, Modal, Form, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import './style.scss'
@@ -17,6 +17,7 @@ import './style.scss'
 const PageList = () => {
   const pageConfig = useSelector(state => state);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
 
   const setIndex = (data) => {
     dispatch({
@@ -26,6 +27,7 @@ const PageList = () => {
   }
 
   const onSetBuildPageId = (data) => {
+    setOpen(true);
     dispatch({
       type: 'setBuildPageId',
       buildPageId: data.page_id
@@ -79,6 +81,23 @@ const PageList = () => {
       columns={columns}
       pagination={false}
       />
+      <Modal
+      open={open}
+      onCancel={() => setOpen(false)}
+      >
+        <h2>页面编辑</h2>
+        <Form>
+        {Object.keys(pageConfig.pages[0]).map(key => {
+          const value = pageConfig.pages[0][key];
+          return (
+            <Form.Item>
+              <span>{key}</span>
+              <Input defaultValue={value} />
+            </Form.Item>
+          )
+        })}
+        </Form>
+      </Modal>
     </div>
   )
 }

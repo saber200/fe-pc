@@ -1,8 +1,25 @@
+.continer{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.components{
+  height: calc(100% - 60px);
+  padding: 20px;
+  min-width: 176px;
+  max-width: 176px;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
 .home{
-  width: 375;
+  min-width: 375px;
+  max-width: 375px;
   flex-basis: 375px;
   flex-grow: 0 !important;
-  height: calc(100% - 60px) !important;
+  height: calc(100% - 100px) !important;
   margin: 20px;
   border: 1px solid #cccccc;
   position: relative;

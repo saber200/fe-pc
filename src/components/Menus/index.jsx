@@ -17,7 +17,7 @@ const items = [
   },
   {
     key: '/',
-    label: '组件',
+    label: '构建',
     icon: <AppstoreOutlined />
   }
 ];

@@ -2,7 +2,7 @@
  * @Author: v_qubo02 v_qubo02@baidu.com
  * @Date: 2024-05-15 14:33:11
  * @LastEditors: v_qubo02 v_qubo02@baidu.com
- * @LastEditTime: 2024-07-02 14:52:53
+ * @LastEditTime: 2024-07-05 11:21:30
  * @FilePath: /fe-pc/src/page/Home/index.jsx
  * @Description: 
  * 
@@ -11,22 +11,29 @@
 import _ from "lodash";
 import { WidthProvider, Responsive } from "react-grid-layout";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Button, Drawer } from 'antd';
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from 'antd';
+import ConfigForm from '@/components/ConfigForm'
+import ComponentList from '@/components/Menu/ComponentList/index'
+// import DragCop from '@/components/Drag';
 import {
   SelectCop,
   ButtonCop,
   TableCop,
   PaginationCop
 } from '@/components/CopList.js';
+import copConfigs from '@/utils/copConfigs'
 import './style.css'
+import { useEffect } from "react";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const Home = () => {
   const [list, setList] = useState([]); // layouts
   const [open, setOpen] = useState(false); // 抽屉开闭状态
+  const pageConfig = useSelector(state => state); // 所有公共状态
   const gridData = useSelector(state => state.gridData); // 当前拖动组件属性
+  const dispatch = useDispatch();
 
   // 添加组件
   const onAddDrop = (layout, inx) => {
@@ -41,6 +48,12 @@ const Home = () => {
 
     const newList = [...list];
     newList.push(newLayout);
+
+    dispatch({
+      type: 'changeConfig',
+      config: copConfigs[i] || {},
+      gridData
+    })
 
     setList(newList);
   }
@@ -62,7 +75,13 @@ const Home = () => {
   }
 
   // 编辑组件
-  const EleClick = (el) => {
+  const EleClick = el => {
+    dispatch({
+      type: 'changeConfig',
+      config: copConfigs[el.type] || {},
+      gridData
+    })
+
     setOpen(true);
   }
 
@@ -102,6 +121,12 @@ const Home = () => {
     const newList = [...list];
     newList.splice(i, 1);
 
+    dispatch({
+      type: 'changeConfig',
+      config: {},
+      gridData
+    })
+
     setList(newList);
   }
 
@@ -118,27 +143,28 @@ const Home = () => {
   const onDropDragOver = e => ({ ...gridData });
 
   return (
-    <div className="home">
-      <ResponsiveGridLayout
-        layout={list}
-        rowHeight={30}
-        isDroppable
-        cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }} // 不同屏幕列数
-        compactType={null}
-        preventCollision
-        className="grid_layout"
-        onDrop={onDrop}
-        onDragStop={onDragStop}
-        onDropDragOver={onDropDragOver}
-        onResizeStop={onResizeStop}
-      >
-        {_.map(list, (el, inx) => createElement(el, inx))}
-      </ResponsiveGridLayout>
-      <Drawer title="Basic Drawer" onClose={onClose} open={open} width={600}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
+    <div className="continer">
+      <div className="components">
+        <ComponentList />
+      </div>
+      <div className="home">
+        <ResponsiveGridLayout
+          layout={list}
+          rowHeight={30}
+          isDroppable
+          cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }} // 不同屏幕列数
+          compactType={null}
+          preventCollision
+          className="grid_layout"
+          onDrop={onDrop}
+          onDragStop={onDragStop}
+          onDropDragOver={onDropDragOver}
+          onResizeStop={onResizeStop}
+        >
+          {_.map(list, (el, inx) => createElement(el, inx))}
+        </ResponsiveGridLayout>
+      </div>
+      <ConfigForm />
     </div>
   )
 }

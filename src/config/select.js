@@ -206,7 +206,7 @@ let config = {
         desc: '标签对齐方式',
         label: '标签对齐方式',
         order: 1,
-        type: 'string',
+        type: 'select',
         //属性值的默认值
         defaultValue: 'right',
         //是否可以不设置

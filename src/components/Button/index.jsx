@@ -9,7 +9,6 @@
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
  */
 import { Button } from 'antd';
-import config from '@/config/button.js';
 
 const ButtonCop = () => {
   return (

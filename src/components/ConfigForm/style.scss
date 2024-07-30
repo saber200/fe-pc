@@ -1,3 +1,20 @@
-.config_form{
+.config{
   padding: 20px;
+  flex-grow: 1;
+  background-color: #ffffff;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  
+  .config_form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    >div{
+      flex-grow: 1;
+      min-width: 44%;
+      max-width: 44%;
+      margin: 10px 0;
+    }
+  }
 }
