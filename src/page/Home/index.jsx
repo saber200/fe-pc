@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from 'antd';
 import ConfigForm from '@/components/ConfigForm'
 import ComponentList from '@/components/Menu/ComponentList/index'
-// import DragCop from '@/components/Drag';
 import {
   SelectCop,
   ButtonCop,
@@ -23,8 +22,8 @@ import {
   PaginationCop
 } from '@/components/CopList.js';
 import copConfigs from '@/utils/copConfigs'
-import './style.css'
 import { useEffect } from "react";
+import './style.css'
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -49,16 +48,16 @@ const Home = () => {
     const newList = [...list];
     newList.push(newLayout);
 
-    dispatch({
-      type: 'changeConfig',
-      config: copConfigs[i] || {},
-      gridData
-    })
+    // dispatch({
+    //   type: 'changeConfig',
+    //   config: copConfigs[i] || {},
+    //   gridData
+    // })
 
     setList(newList);
   }
 
-  // 选择组件
+  // 渲染组件
   const selectedComponent = (type, el) => {
     switch(type){
       case 'select':
@@ -76,11 +75,11 @@ const Home = () => {
 
   // 编辑组件
   const EleClick = el => {
-    dispatch({
-      type: 'changeConfig',
-      config: copConfigs[el.type] || {},
-      gridData
-    })
+    // dispatch({
+    //   type: 'changeConfig',
+    //   config: copConfigs[el.type] || {},
+    //   gridData
+    // })
 
     setOpen(true);
   }
@@ -121,11 +120,11 @@ const Home = () => {
     const newList = [...list];
     newList.splice(i, 1);
 
-    dispatch({
-      type: 'changeConfig',
-      config: {},
-      gridData
-    })
+    // dispatch({
+    //   type: 'changeConfig',
+    //   config: {},
+    //   gridData
+    // })
 
     setList(newList);
   }

@@ -1,10 +1,4 @@
 import DragCop from '@/components/Drag';
-// import {
-//   SelectCop,
-//   ButtonCop,
-//   TableCop,
-//   PaginationCop
-// } from '@/components/CopList';
 import SelectIcon from "@/assets/i-select.svg?react";
 import ButtonIcon from "@/assets/i-button.svg?react";
 import PaginationIcon from "@/assets/i-pagination.svg?react";

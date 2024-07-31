@@ -15,7 +15,8 @@ const DragCop = props => {
   return (
     <div
     className='drag-gird'
-    draggable={true}
+    draggable
+    isResizable
     onDragStart={onDragStart}
     style={style}
     >
