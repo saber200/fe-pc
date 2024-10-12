@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Radio, Select, Button, InputNumber, Divider, Modal, Tabs } from 'antd';
 import { yesOrNo } from '@/utils/commonDict';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
 
 const ConfigForm = props => {
   const [form] = Form.useForm();
-  const componentConfig = useSelector(state => state.componentConfig); // 所有公共状态
-
-  const onChangeTabs = (key) => {
-    console.log(form.getFieldsValue())
-  };
+  const pageConfig = useSelector(state => state); // 所有公共状态
+  const editOptionName = useSelector(state => state.editOptionName); // 当前拖动组件
+  const editComp = useSelector(state => state.editComp); // 所有公共状态
+  const dispatch = useDispatch();
 
   const switchCompoments = item => {
     let { type, defaultValue, valueSource } = item;
@@ -44,9 +43,26 @@ const ConfigForm = props => {
     }
   }
 
+  const onFieldsChange = val => {
+    const key = Object.getOwnPropertyNames(val)[0];
+    const value = val[key];
+    const editOption = pageConfig.layouts.find(item => item.id === editOptionName);
+    const editInx = pageConfig.layouts.findIndex(item => item.id === editOptionName);
+    const propsInx = editOption.render.props.findIndex(item => item.name === key);
+
+    editOption.render.props[propsInx].value = value;
+
+    pageConfig.layouts[editInx] = editOption;
+
+    dispatch({
+      type: 'changeLayouts',
+      layouts: pageConfig.layouts
+    })
+  }
+
   return (
     <div className='config'>
-      <Tabs defaultActiveKey="1" onChange={onChangeTabs}>
+      <Tabs defaultActiveKey="1">
         <Tabs.TabPane key="tab_1" tab="基础配置">
           <Form
           className='config_form'
@@ -55,8 +71,9 @@ const ConfigForm = props => {
           }}
           labelAlign='left'
           form={form}
+          onValuesChange={onFieldsChange}
           >
-            {componentConfig?.render?.props.map(item => {
+            {editComp?.render?.props.map(item => {
               return (
                 <Form.Item
                 name={item.name}

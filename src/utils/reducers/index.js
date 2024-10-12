@@ -1,35 +1,21 @@
-import { createNewPage } from '@/utils/utils';
-
-const initialState = {
-  pages: [
-    {
-      key: '0',
-      page_name: '首页',
-      page_id: 'page_index',
-      page_level: '一级页面',
-      index: true,
-    },
-    {
-      key: '1',
-      page_name: '新建页面_1',
-      page_id: 'page_new_1',
-      page_level: '一级页面',
-      index: false,
-    },
-  ],
-  pageId: '00001',
-  logo: '',
-  pageName: 'test1',
-  buildPageId: '',
-  componentConfig: {},
-  gridData: {}
-}
+export const initialState = {
+  gridData: {},
+  layouts: []
+};
 
 export function initState(state = initialState, action) {
-  const { gridData, type } = action;
+  const { type, gridData } = action;
   if(type === 'initPageConfig'){
     return {
-      ...action.state
+      initialState,
+      ...newState
+    }
+  }
+
+  if(type === 'changeLayouts'){
+    return {
+      ...state,
+      layouts: action.layouts
     }
   }
 
@@ -37,36 +23,6 @@ export function initState(state = initialState, action) {
     return {
       ...state,
       gridData
-    }
-  }
-
-  if(type === 'setIndex') {
-    const { page_id } = action;
-
-    const newPages = state.pages.map(item => {
-      if(item.page_id === page_id){
-        return {
-          ...item,
-          index: true
-        }
-      }else{
-        return {
-          ...item,
-          index: false
-        }
-      }
-    })
-
-    return {
-      ...state,
-      pages: newPages
-    }
-  }
-
-  if(type === 'createPage') {
-    return {
-      ...state,
-      pages: createNewPage(state.pages)
     }
   }
 
@@ -78,15 +34,49 @@ export function initState(state = initialState, action) {
   }
 
   if(type === 'changeConfig') {
-    const newConfig = {
-      ...action.config,
-      gridData
-    }
+    const { editOptionName } = action;
+    
     return {
       ...state,
-      componentConfig: newConfig
+      editComp: { ...action.config },
+      editOptionName
     }
+  }
+
+  if(type === 'saveConfig') {
+    const { state } = action;
+    return state;
   }
   
   return state
 }
+
+import { Actions } from "../actions/index";
+
+let defaultUser = { realm: "null" };
+let defaultApp = null;
+let defaultEditApp = null;
+
+export const currentUser = (state = defaultUser, action) => {
+  console.log(1)
+  if (action.type == Actions.updateUser) {
+    return action.data;
+  }
+  return state;
+};
+
+export const currentApp = (state = defaultApp, action) => {
+  console.log(2)
+  if (action.type == Actions.updateApp) {
+    return action.data;
+  }
+  return state;
+};
+
+export const editApp = (state = defaultEditApp, action) => {
+  console.log(3)
+  if (action.type == Actions.updateEditApp) {
+    return action.data;
+  }
+  return state;
+};

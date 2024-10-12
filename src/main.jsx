@@ -1,20 +1,28 @@
-import React from 'react'
-import { HashRouter, BrowserRouter  } from "react-router-dom";
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import App from "./appInit";
+import { BrowserRouter  } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import { initState } from '@/utils/reducers/index.js';
-import './index.css'
+import { createRoot } from "react-dom/client";
+import { appState } from "./state";
+import "./index.css";
 
-const store = createStore(initState)
+const store = createStore(initState);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+let init = (succsss, user, app, permission) => {
+  const container = document.getElementById("root");
+  const root = createRoot(container);
+
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+};
+
+export default appState.init(init);

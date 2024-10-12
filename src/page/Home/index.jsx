@@ -1,16 +1,6 @@
-/*
- * @Author: v_qubo02 v_qubo02@baidu.com
- * @Date: 2024-05-15 14:33:11
- * @LastEditors: v_qubo02 v_qubo02@baidu.com
- * @LastEditTime: 2024-07-05 11:21:30
- * @FilePath: /fe-pc/src/page/Home/index.jsx
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
- */
 import _ from "lodash";
 import { WidthProvider, Responsive } from "react-grid-layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from 'antd';
 import ConfigForm from '@/components/ConfigForm'
@@ -22,15 +12,12 @@ import {
   PaginationCop
 } from '@/components/CopList.js';
 import copConfigs from '@/utils/copConfigs'
-import { useEffect } from "react";
 import './style.css'
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-const Home = () => {
-  const [list, setList] = useState([]); // layouts
-  const [open, setOpen] = useState(false); // 抽屉开闭状态
-  const pageConfig = useSelector(state => state); // 所有公共状态
+const Home = props => {
+  const layouts = useSelector(state => state.layouts); // list
   const gridData = useSelector(state => state.gridData); // 当前拖动组件属性
   const dispatch = useDispatch();
 
@@ -38,23 +25,31 @@ const Home = () => {
   const onAddDrop = (layout, inx) => {
     const { i, w, h, type } = gridData;
     const newLayout = {
-      ...layout,
-      i: `${i}_${inx}`,
-      w,
-      h,
-      type
+      ...copConfigs[type],
+      id: `${i}_${inx}`,
+      layout: {
+        ...layout,
+        i: `${i}_${inx}`,
+        w,
+        h,
+        inx,
+        type
+      }
     };
 
-    const newList = [...list];
+    const newList = [...layouts];
     newList.push(newLayout);
 
-    // dispatch({
-    //   type: 'changeConfig',
-    //   config: copConfigs[i] || {},
-    //   gridData
-    // })
+    dispatch({
+      type: 'changeLayouts',
+      layouts: newList
+    })
 
-    setList(newList);
+    dispatch({
+      type: 'changeConfig',
+      editOptionName: newLayout.id,
+      config: newLayout
+    })
   }
 
   // 渲染组件
@@ -75,25 +70,22 @@ const Home = () => {
 
   // 编辑组件
   const EleClick = el => {
-    // dispatch({
-    //   type: 'changeConfig',
-    //   config: copConfigs[el.type] || {},
-    //   gridData
-    // })
+    console.log(layouts, el)
+    const editLayout = layouts.filter(item => item.id === el.i)[0]
 
-    setOpen(true);
+    dispatch({
+      type: 'changeConfig',
+      editOptionName: editLayout.id,
+      config: editLayout
+    })
   }
-
-  // 关闭抽屉
-  const onClose = () => {
-    setOpen(false);
-  };
 
   // 在画布创建组件
   const createElement = (el, inx) => {
+    const { layout } = el;
     return (
-      <div key={el.i} className='list-item' data-grid={el} onClick={() => EleClick(el)}>
-        {selectedComponent(el.type, el)}
+      <div key={layout.i} className='list-item' data-grid={layout} onClick={() => EleClick(layout)}>
+        {selectedComponent(layout.type, layout)}
         <span className='list-item-close' data-type='remove' onClick={(e) => onRemovelayout(e, inx)}>x</span>
       </div>
     )
@@ -101,32 +93,41 @@ const Home = () => {
 
   // 修改layout
   const onChangeLayout = layout => {
-    const newList = list.map((item, inx) => {
+    const newList = layouts.map((item, inx) => {
       const { x, y, w, h } = layout[inx];
       return {
         ...item,
-        x,
-        y,
-        w,
-        h
+        layout: {
+          ...item.layout,
+          x,
+          y,
+          w,
+          h
+        }
       }
     })
 
-    setList(newList)
+    dispatch({
+      type: 'changeLayouts',
+      layouts: newList
+    })
   }
 
   // 删除layout
   const onRemovelayout = (e, i) => {
-    const newList = [...list];
+    const newList = [...layouts];
     newList.splice(i, 1);
 
-    // dispatch({
-    //   type: 'changeConfig',
-    //   config: {},
-    //   gridData
-    // })
+    dispatch({
+      type: 'changeLayouts',
+      layouts: newList
+    })
 
-    setList(newList);
+    dispatch({
+      type: 'changeConfig',
+      config: {},
+      editOptionName: '',
+    })
   }
 
   // 外部移入元素时调用
@@ -141,6 +142,10 @@ const Home = () => {
   // 外部拖入及移动时
   const onDropDragOver = e => ({ ...gridData });
 
+  useEffect(() => {
+    
+  }, [])
+
   return (
     <div className="continer">
       <div className="components">
@@ -148,7 +153,7 @@ const Home = () => {
       </div>
       <div className="home">
         <ResponsiveGridLayout
-          layout={list}
+          layout={layouts}
           rowHeight={30}
           isDroppable
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }} // 不同屏幕列数
@@ -160,7 +165,7 @@ const Home = () => {
           onDropDragOver={onDropDragOver}
           onResizeStop={onResizeStop}
         >
-          {_.map(list, (el, inx) => createElement(el, inx))}
+          {_.map(layouts, (el, inx) => createElement(el, inx))}
         </ResponsiveGridLayout>
       </div>
       <ConfigForm />
